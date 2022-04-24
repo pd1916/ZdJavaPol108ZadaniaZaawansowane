@@ -1,0 +1,9 @@
+shouldBePossibleToAddNonExpressParcel - 35, 40, 45, 29, false
+shouldNotBePossibleToAddNonExpressParcelWhenSumOfXYZIsTooHigh - 100, 100, 101, 29, false
+shouldNotBePossibleToAddNonExpressParcelWhenXYZIsTooLow - 29, 30, 35 | 30, 29, 35 | 30, 35, 29, false
+shouldNotBePossibleToAddNonExpressParcelWhenWeighIsTooHigh - 30, 35, 40, 31, false
+
+shouldBePossibleToAddExpressParcel - 35, 40, 45, 14, true
+shouldNotBePossibleToAddExpressParcelWhenSumOfXYZIsTooHigh - 100, 100, 101, 14, true
+shouldNotBePossibleToAddNonExpressParcelWhenXYZIsTooLow - 29, 30, 35 | 30, 29, 35 | 30, 35, 29, true
+shouldNotBePossibleToAddNonExpressParcelWhenWeighIsTooHigh - 30, 35, 40, 16, true

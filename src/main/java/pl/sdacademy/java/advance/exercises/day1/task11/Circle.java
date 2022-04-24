@@ -1,8 +1,8 @@
-package pl.sdacademy.java.advance.exercises.day1.task9;
+package pl.sdacademy.java.advance.exercises.day1.task11;
 
 import java.util.Objects;
 
-public class Circle implements Movable{
+public class Circle implements Movable, Resizable {
     private final Point2D center;
     private final Point2D point;
 
@@ -20,21 +20,17 @@ public class Circle implements Movable{
     }
 
     public double getRadius() {
-        // sqrt(x2 - x1)^2 + (y2 - y1)^2)
-        // gdzie x1, y1 -> point
-        //       x2, y2 -> center
         return Math.sqrt(
                 Math.pow(center.getX() - point.getX(), 2) +
-                        Math.pow(center.getY() - point.getY(), 2));
+                        Math.pow(center.getY() - point.getY(), 2)
+        );
     }
 
     public double getPerimeter() {
-        // 2 * pi * r
         return 2 * Math.PI * getRadius();
     }
 
     public double getArea() {
-        // PI * radius^2
         return Math.PI * Math.pow(getRadius(), 2);
     }
 
@@ -45,9 +41,17 @@ public class Circle implements Movable{
     }
 
     @Override
+    public void resize(double resizeFactor) {
+        double newX = ((point.getX() - center.getX()) * resizeFactor) + center.getX();
+        point.setX(newX);
+        double newY = ((point.getY() - center.getY()) * resizeFactor) + center.getY();
+        point.setY(newY);
+    }
+
+    @Override
     public boolean equals(Object o) {
-        if(this == o) return true;
-        if(o == null || getClass() != o.getClass()) return false;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         Circle circle = (Circle) o;
         return Objects.equals(center, circle.center) && Objects.equals(point, circle.point);
     }

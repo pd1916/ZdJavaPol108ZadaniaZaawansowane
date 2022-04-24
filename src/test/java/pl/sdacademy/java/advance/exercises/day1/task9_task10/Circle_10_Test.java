@@ -1,4 +1,4 @@
-package pl.sdacademy.java.advance.exercises.day1.task9;
+package pl.sdacademy.java.advance.exercises.day1.task9_task10;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.within;
 
-class Circle_9_Test {
+class Circle_10_Test {
     private Circle circle;
 
     @BeforeEach
@@ -14,6 +14,20 @@ class Circle_9_Test {
         Point2D center = new Point2D(0, 0);
         Point2D point = new Point2D(3, 0);
         circle = new Circle(center, point);
+        circle.move(new MoveDirection(-1, 5));
+    }
+
+    @Test
+    void shouldReturnCorrectNewPositionForPointAndCenter() {
+        // given
+        Point2D expectedNewCenter = new Point2D(-1, 5);
+        Point2D expectedNewPoint = new Point2D(2, 5);
+        // when
+        Point2D point = circle.getPoint();
+        Point2D center = circle.getCenter();
+        // then
+        assertThat(point).isEqualTo(expectedNewPoint);
+        assertThat(center).isEqualTo(expectedNewCenter);
     }
 
     @Test

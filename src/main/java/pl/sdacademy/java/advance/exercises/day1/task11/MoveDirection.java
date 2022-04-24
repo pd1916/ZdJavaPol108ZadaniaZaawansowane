@@ -1,4 +1,4 @@
-package pl.sdacademy.java.advance.exercises.day1.task9;
+package pl.sdacademy.java.advance.exercises.day1.task11;
 
 public class MoveDirection {
     private final double x;

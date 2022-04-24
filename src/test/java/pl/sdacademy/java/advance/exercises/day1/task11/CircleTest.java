@@ -1,4 +1,4 @@
-package pl.sdacademy.java.advance.exercises.day1.task9;
+package pl.sdacademy.java.advance.exercises.day1.task11;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.within;
 
-class Circle_10_Test {
+class CircleTest {
     private Circle circle;
 
     @BeforeEach
@@ -14,14 +14,14 @@ class Circle_10_Test {
         Point2D center = new Point2D(0, 0);
         Point2D point = new Point2D(3, 0);
         circle = new Circle(center, point);
-        circle.move(new MoveDirection(-1, 5));
+        circle.resize(3);
     }
 
     @Test
     void shouldReturnCorrectNewPositionForPointAndCenter() {
         // given
-        Point2D expectedNewCenter = new Point2D(-1, 5);
-        Point2D expectedNewPoint = new Point2D(2, 5);
+        Point2D expectedNewCenter = new Point2D(0, 0);
+        Point2D expectedNewPoint = new Point2D(9, 0);
         // when
         Point2D point = circle.getPoint();
         Point2D center = circle.getCenter();
@@ -32,33 +32,25 @@ class Circle_10_Test {
 
     @Test
     void shouldReturnCorrectRadius() {
-        // when
+        //when
         double result = circle.getRadius();
-        // then
-        assertThat(result).isEqualTo(3);
+        //then
+        assertThat(result).isCloseTo(9, within(0.01D));
     }
 
     @Test
     void shouldReturnCorrectPerimeter() {
-        // when
+        //when
         double result = circle.getPerimeter();
-        System.out.println(result);
-        // then
-        //assertThat(round(result)).isEqualTo(18.85);
-        assertThat(result).isCloseTo(18.84, within(0.01D));
+        //then
+        assertThat(result).isCloseTo(56.54, within(0.01D));
     }
 
     @Test
     void shouldReturnCorrectArea() {
-        // when
+        //when
         double result = circle.getArea();
-        // then
-        assertThat(result).isCloseTo(28.27, within(0.01D));
+        //then
+        assertThat(result).isCloseTo(254.46, within(0.01D));
     }
-
-    private double round(double value) {
-        // Math.ceil(18.84955592153876 * 100) => 1885 / 100 => 18,85
-        return Math.ceil(value * 100) / 100;
-    }
-
 }

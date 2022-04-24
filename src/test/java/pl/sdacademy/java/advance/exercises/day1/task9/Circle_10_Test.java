@@ -9,14 +9,25 @@ import static org.assertj.core.api.Assertions.within;
 class Circle_10_Test {
     private Circle circle;
 
-    // dodać test sprawdzający nowe wartości dla center oraz point
-
     @BeforeEach
     void setUp() {
         Point2D center = new Point2D(0, 0);
         Point2D point = new Point2D(3, 0);
         circle = new Circle(center, point);
-        circle.move(new MoveDirection(1, 5));
+        circle.move(new MoveDirection(-1, 5));
+    }
+
+    @Test
+    void shouldReturnCorrectNewPositionForPointAndCenter() {
+        // given
+        Point2D expectedNewCenter = new Point2D(-1, 5);
+        Point2D expectedNewPoint = new Point2D(2, 5);
+        // when
+        Point2D point = circle.getPoint();
+        Point2D center = circle.getCenter();
+        // then
+        assertThat(point).isEqualTo(expectedNewPoint);
+        assertThat(center).isEqualTo(expectedNewCenter);
     }
 
     @Test

@@ -1,8 +1,6 @@
 package pl.sdacademy.java.advance.exercises.day1.task3;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 

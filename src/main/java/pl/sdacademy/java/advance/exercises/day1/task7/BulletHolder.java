@@ -2,7 +2,6 @@ package pl.sdacademy.java.advance.exercises.day1.task7;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Stack;
 
 public class BulletHolder {
     //private final Stack<String> bulletHolder = new Stack<>();
@@ -20,6 +19,7 @@ public class BulletHolder {
         bulletHolder.push(bullet);
     }
 
+// zmiana że metoda zwracana boolean - ułatwienie w testach
 //    public boolean loadBullet(String bullet) {
 //        if(maxNumberOfBullet == bulletHolder.size()) {
 //            return false;

@@ -1,9 +1,6 @@
 package pl.sdacademy.java.advance.exercises.day2.task16;
 
 import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 public enum Runner {
     BEGINNER(201, Integer.MAX_VALUE),

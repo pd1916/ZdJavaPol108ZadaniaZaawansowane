@@ -15,6 +15,11 @@ public class CarService {
         cars.add(car);
     }
 
+    //point2
+    public void remove(Car car) {
+        cars.remove(car);
+    }
+
     //point3
     public List<Car> getAll() {
         return new ArrayList<>(cars); // tworzy modyfikowaną listę/kolekcję
@@ -41,11 +46,31 @@ public class CarService {
 //                .forEach(System.out::println);
 //    }
 
+    //point5
+    public List<Car> getCarsProducedBefore1999() {
+        return cars.stream()
+                .filter(car -> car.getProductionYear() < 1999)
+                .collect(Collectors.toList());
+    }
+
     //point6
     public Optional<Car> getMostExpensiveCar() {
         return cars.stream()
                 //.max(Comparator.comparingDouble(car -> car.getPrice()))
                 .max(Comparator.comparingDouble(Car::getPrice));
+    }
+
+    //point7
+    public Optional<Car> getCheapestCar() {
+        return cars.stream()
+                .min(Comparator.comparingDouble(Car::getPrice));
+    }
+
+    //point8
+    public List<Car> getCarsHavingAtLeast2Manufacturers() {
+        return cars.stream()
+                .filter(car -> car.getManufacturers().size() >= 2)
+                .collect(Collectors.toList());
     }
 
     //point9
@@ -59,6 +84,18 @@ public class CarService {
                     .sorted(Comparator.comparing(Car::getName).reversed())
                     .collect(Collectors.toList());
         }
+    }
+
+    //point10
+    public boolean contains(Car car) {
+        return cars.contains(car);
+    }
+
+    //point11
+    public List<Car> getCarsProducedBy(Manufacturer manufacturer) {
+        return cars.stream()
+                .filter(car -> car.getManufacturers().contains(manufacturer))
+                .collect(Collectors.toList());
     }
 
     //point12

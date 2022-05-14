@@ -1,7 +1,5 @@
 package pl.sdacademy.java.advance.exercises.day2.task20_21_22;
 
-import java.util.ArrayList;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -22,6 +20,13 @@ public class Main {
         float cubePerimeter = cube.calculatePerimeter();
         System.out.println("cubeVolume: " + cubeVolume);
         System.out.println("cubePerimeter: " + cubePerimeter);
+
+        int fillResult = cube.fill(7);
+        System.out.println("Fill 7, result: " + fillResult);
+        fillResult = cube.fill(8);
+        System.out.println("Fill 8, result: " + fillResult);
+        fillResult = cube.fill(9);
+        System.out.println("Fill 9, result: " + fillResult);
 
 //        Shape cube2 = new Cube(2);
 //        ((Cube)cube2).calculateVolume();
